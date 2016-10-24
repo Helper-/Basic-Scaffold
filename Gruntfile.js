@@ -15,6 +15,9 @@ module.exports = function(grunt) {
     basic: basicConfig,
 
     pkg: grunt.file.readJSON('package.json'),
+    clean: {
+      dist: ['dist/*']
+    },
     copy: {
       html: {
         files: [{
@@ -92,14 +95,27 @@ module.exports = function(grunt) {
     }
   });
 
+  grunt.registerTask('default', [
+    'jshint',
+    'concat',
+    'uglify'
+  ]);
+
+  grunt.registerTask('build', [
+    'clean:dist',
+    'concat',
+    'copy',
+    'uglify'
+  ]);
+
   grunt.registerTask('test', ['jshint']);
 
   grunt.registerTask('serve', [
     'jshint',
-    'copy',
+    'build',
     'connect'
   ]);
 
-  grunt.registerTask('default', ['jshint', 'concat', 'uglify']);
+
 
 };
