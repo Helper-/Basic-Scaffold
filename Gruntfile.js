@@ -46,7 +46,7 @@ module.exports = function(grunt) {
       },
       dist: {
         src: ['<%= basic.app %>/**/*.js'],
-        dest: 'dist/<%= pkg.name %>.js'
+        dest: '.tmp/<%= pkg.name %>.js'
       }
     },
     uglify: {
@@ -54,9 +54,17 @@ module.exports = function(grunt) {
         banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n'
       },
       dist: {
-        files: {
-          'dist/<%= pkg.name %>.min.js': ['<%= concat.dist.dest %>']
-        }
+        src: ['<%= concat.dist.dest %>'],
+        dest: 'dist/scripts.min.js'
+      }
+    },
+    cssmin: {
+      options: {
+        banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n'
+      },
+      dist: {
+        src: ['<%= basic.app %>/**/*.css'],
+        dest: 'dist/style.min.css'
       }
     },
     qunit: {
@@ -98,14 +106,16 @@ module.exports = function(grunt) {
   grunt.registerTask('default', [
     'jshint',
     'concat',
-    'uglify'
+    'uglify',
+    'cssmin'
   ]);
 
   grunt.registerTask('build', [
     'clean:dist',
     'concat',
     'copy',
-    'uglify'
+    'uglify',
+    'cssmin'
   ]);
 
   grunt.registerTask('test', ['jshint']);
