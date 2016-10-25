@@ -1,5 +1,6 @@
 'use strict';
 var SERVER_PORT = 9000;
+var LIVERELOAD_PORT = 35729;
 
 module.exports = function(grunt) {
 
@@ -103,8 +104,11 @@ module.exports = function(grunt) {
       }
     },
     watch: {
-      files: ['<%= jshint.files %>'],
-      tasks: ['jshint']
+      options: {
+        livereload: LIVERELOAD_PORT
+      },
+      files: ['<%= jshint.files %>', '<%= basic.app %>/**'],
+      tasks: ['jshint', 'serve']
     }
   });
 
@@ -135,7 +139,8 @@ module.exports = function(grunt) {
     }
     grunt.task.run([
       'jshint',
-      'connect:dev'
+      'connect:dev',
+      'watch'
     ]);
   });
 
