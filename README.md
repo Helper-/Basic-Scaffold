@@ -23,8 +23,9 @@ server on `http://localhost:9000` and open a browser to this location.
 Any modification on the html, css, or javascript will be detected
 and if you reload the page you will see those changes.  If you would like your browser to auto reload you can download [LiveReload](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei) from the chrome web store.
 
-TODO: If you'd like to run the compiled version (without reloading),
+If you'd like to run the compiled version (without reloading),
 run `grunt serve:prod`.
+TODO: Running `grunt serve:prod` currently works but I do not have it setup to use the min files in `/dist/`.
 
 ## Building the application
 
