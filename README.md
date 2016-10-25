@@ -20,11 +20,11 @@ and [jquery](http://jquery.com).
 You can run your app using `grunt serve`. This will start a
 server on `http://localhost:9000` and open a browser to this location.
 
-TODO: Any modification on the html, css, or javascript will be detected
-and the page on the browser will be reloaded automatically
+Any modification on the html, css, or javascript will be detected
+and if you reload the page you will see those changes.  If you would like your browser to auto reload you can download [LiveReload](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei) from the chrome web store.
 
 TODO: If you'd like to run the compiled version (without reloading),
-run `grunt serve:dist`.
+run `grunt serve:prod`.
 
 ## Building the application
 
@@ -45,5 +45,4 @@ required to run the application in its built state is running
 ## TODO
 
 This is a very basic scaffold for webapps.  I am still working
-on having the `dist` folder organized correctly and adding a
-super basic level of testing.  
+on having the `dist` folder be looked at correctly from the html page when you want to test production use.  
