@@ -91,9 +91,14 @@ module.exports = function(grunt) {
         open: true,
         hostname: 'localhost'
       },
-      production: {
+      prod: {
         options: {
           base: 'dist'
+        }
+      },
+      dev: {
+        options: {
+          base: 'app'
         }
       }
     },
@@ -120,11 +125,19 @@ module.exports = function(grunt) {
 
   grunt.registerTask('test', ['jshint']);
 
-  grunt.registerTask('serve', [
-    'jshint',
-    'build',
-    'connect'
-  ]);
+  grunt.registerTask('serve', function(target){
+    if (target === 'prod') {
+      return grunt.task.run([
+        'jshint',
+        'build',
+        'connect:prod'
+      ]);
+    }
+    grunt.task.run([
+      'jshint',
+      'connect:dev'
+    ]);
+  });
 
 
 
