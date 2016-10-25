@@ -45,4 +45,6 @@ required to run the application in its built state is running
 ## TODO
 
 This is a very basic scaffold for webapps.  I am still working
-on having the `dist` folder be looked at correctly from the html page when you want to test production use.  
+on having the `dist` folder be looked at correctly from the html page when you want to test production use.
+
+<24 Oct 2016> Basic scaffold started    
